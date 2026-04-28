@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Micro:bit – Gioco Equilibrio</title>
+
+<style>
+body{
+  font-family:Arial, sans-serif;
+  text-align:center;
+  background:#f4f6f8;
+  margin:0;
+  padding:20px;
+}
+
+h1{
+  color:#222;
+}
+
+button{
+  padding:12px 18px;
+  font-size:16px;
+  border:none;
+  border-radius:10px;
+  margin:6px;
+  cursor:pointer;
+  background:#2563eb;
+  color:white;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+button.red{
+  background:#dc2626;
+}
+
+button.green{
+  background:#16a34a;
+}
+
+.card{
+  background:white;
+  max-width:340px;
+  margin:12px auto;
+  padding:14px;
+  border-radius:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.value{
+  font-size:28px;
+  font-weight:bold;
+}
+
+.small{
+  color:#555;
+}
+
+#status{
+  font-weight:bold;
+  color:#dc2626;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎮 Micro:bit – Gioco dell’Equilibrio</h1>
+
+<button onclick="connectMicrobit()">🔗 Connetti</button>
+<button class="red" onclick="disconnectMicrobit()">⛔ Disconnetti</button>
+
+<p id="status">Non connesso</p>
+
+<div class="card">
+  <h3>Accelerometro</h3>
+  <p>X: <span id="x" class="value">0</span></p>
+  <p>Y: <span id="y" class="value">0</span></p>
+  <p>Z: <span id="z" class="value">0</span></p>
+</div>
+
+<div class="card">
+  <h3>⏱️ Equilibrio</h3>
+  <div class="value"><span id="timer">0</span> s</div>
+  <p class="small">Rimani stabile per 5 secondi</p>
+</div>
+
+<div class="card">
+  <h3>🎯 Movimento rilevato</h3>
+  <div id="movement" class="value">Fermo</div>
+  <p>Tempo: <span id="moveTime">0</span> s</p>
+</div>
+
+<div class="card">
+  <button class="green" onclick="sendHeart()">❤️ Cuore</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
